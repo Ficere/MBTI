@@ -7,12 +7,14 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // 监听所有网络接口
     port: 5173,
-    strictPort: false
+    strictPort: false,
+    allowedHosts: ['.bohrium.tech', 'localhost'] // 允许 bohrium.tech 的所有子域名
   },
   preview: {
     host: '0.0.0.0', // 监听所有网络接口
     port: 4173,
-    strictPort: false
+    strictPort: false,
+    allowedHosts: ['.bohrium.tech', 'localhost'] // 允许 bohrium.tech 的所有子域名
   }
 })
 
