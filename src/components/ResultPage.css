@@ -1,0 +1,245 @@
+.result-page {
+  width: 100%;
+  max-width: 900px;
+}
+
+.result-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.result-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.result-header h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.mbti-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.type-label {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.type-value {
+  font-size: 56px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dimensions {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dimension-card {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 25px;
+  border: 2px solid #e9ecef;
+}
+
+.dimension-name {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dimension-scores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.score-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.score-type {
+  font-size: 24px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.score-value {
+  font-size: 14px;
+  color: #666;
+}
+
+.score-percent {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dimension-bar {
+  display: flex;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-left {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: width 0.5s ease;
+}
+
+.bar-right {
+  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: width 0.5s ease;
+}
+
+.dimension-result {
+  text-align: center;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dimension-result strong {
+  font-size: 18px;
+  color: #667eea;
+}
+
+.result-detail {
+  font-size: 14px;
+  color: #666;
+}
+
+.actions {
+  padding: 0 40px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.restart-button,
+.download-button,
+.copy-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.restart-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.download-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.download-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4);
+}
+
+.download-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.copy-button {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.copy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+}
+
+@media (max-width: 768px) {
+  .result-header {
+    padding: 30px 20px;
+  }
+
+  .result-header h1 {
+    font-size: 24px;
+  }
+
+  .type-value {
+    font-size: 42px;
+    letter-spacing: 6px;
+  }
+
+  .dimensions {
+    padding: 30px 20px;
+  }
+
+  .dimension-card {
+    padding: 20px;
+  }
+
+  .dimension-name {
+    font-size: 18px;
+  }
+
+  .actions {
+    padding: 0 20px 30px;
+    flex-direction: column;
+  }
+
+  .restart-button,
+  .download-button,
+  .copy-button {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
