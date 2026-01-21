@@ -4,12 +4,14 @@ import QRCode from 'qrcode'
 import questions from '../data/questions.json'
 import { saveTestResult } from '../utils/storage'
 import { calculateMBTI, getDimensionResult } from '../utils/mbti'
+import { getTypeDescription } from '../constants/mbti'
 import './ResultPage.css'
 
 function ResultPage({ answers, onRestart, isHistoryView = false }) {
   const resultRef = useRef(null)
   const [isDownloading, setIsDownloading] = useState(false)
   const [qrCodeUrl, setQrCodeUrl] = useState('')
+  const [activeTab, setActiveTab] = useState('strengths') // 当前激活的标签页
 
   // 生成二维码（用于下载图片）
   useEffect(() => {
@@ -41,10 +43,14 @@ function ResultPage({ answers, onRestart, isHistoryView = false }) {
       saveTestResult(type, answers, scores)
     }
 
+    // 获取类型描述
+    const typeDescription = getTypeDescription(type)
+
     return {
       dimensions,
       mbtiType: type,
-      scores
+      scores,
+      typeDescription
     }
   }, [answers, isHistoryView])
 
@@ -124,6 +130,136 @@ function ResultPage({ answers, onRestart, isHistoryView = false }) {
     }
   }
 
+  // 标签页配置
+  const tabs = [
+    { id: 'strengths', label: '💪 优势', icon: '✓' },
+    { id: 'weaknesses', label: '⚡ 劣势', icon: '⚠️' },
+    { id: 'workStyle', label: '💼 工作风格', icon: '💼' },
+    { id: 'idealEnvironment', label: '🏡 理想环境', icon: '🌟' },
+    { id: 'relationshipTips', label: '❤️ 关系建议', icon: '💡' },
+    { id: 'growthSuggestions', label: '🌱 成长建议', icon: '🎯' },
+    { id: 'misconceptions', label: '🔍 误解与真相', icon: '❌' },
+    { id: 'compatibilityTips', label: '🤝 兼容性', icon: '🔗' }
+  ]
+
+  // 渲染标签页内容
+  const renderTabContent = () => {
+    const typeDesc = result.typeDescription
+
+    switch (activeTab) {
+      case 'strengths':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.strengths.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">✓</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'weaknesses':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.weaknesses.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">⚠️</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'workStyle':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.workStyle.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">💼</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'idealEnvironment':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.idealEnvironment.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">🌟</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'relationshipTips':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.relationshipTips.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">💡</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'growthSuggestions':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.growthSuggestions.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">🎯</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      case 'misconceptions':
+        return (
+          <div className="tab-content-list">
+            <div className="misconception-section">
+              <h4 className="subsection-title">❌ 常见误解</h4>
+              {typeDesc.misconceptions.map((item, index) => (
+                <div key={index} className="content-item misconception">
+                  <span className="item-icon">❌</span>
+                  <span className="item-text">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="truth-section">
+              <h4 className="subsection-title">✅ 真相</h4>
+              {typeDesc.truths.map((item, index) => (
+                <div key={index} className="content-item truth">
+                  <span className="item-icon">✅</span>
+                  <span className="item-text">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+
+      case 'compatibilityTips':
+        return (
+          <div className="tab-content-list">
+            {typeDesc.compatibilityTips.map((item, index) => (
+              <div key={index} className="content-item">
+                <span className="item-icon">🔗</span>
+                <span className="item-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )
+
+      default:
+        return null
+    }
+  }
+
   // 复制结果文本
   const handleCopyText = () => {
     const text = `
@@ -157,6 +293,7 @@ ${result.dimensions.map(dim => {
           <div className="mbti-type">
             <span className="type-label">{isHistoryView ? '性格类型' : '你的性格类型是'}</span>
             <span className="type-value">{result.mbtiType}</span>
+            <span className="type-tagline">{result.typeDescription.tagline}</span>
           </div>
         </div>
 
@@ -209,6 +346,49 @@ ${result.dimensions.map(dim => {
               </div>
             )
           })}
+        </div>
+
+        {/* 类型概览卡片 */}
+        <div className="type-overview-card">
+          <div className="overview-section">
+            <div className="overview-icon">📌</div>
+            <h3 className="overview-title">核心特质</h3>
+            <div className="traits-container">
+              {result.typeDescription.traits.map((trait, index) => (
+                <span key={index} className="trait-tag">{trait}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="overview-section">
+            <div className="overview-icon">💡</div>
+            <h3 className="overview-title">核心动机</h3>
+            <p className="overview-text">{result.typeDescription.motivation}</p>
+          </div>
+
+          <div className="overview-section">
+            <div className="overview-icon">⚠️</div>
+            <h3 className="overview-title">核心恐惧</h3>
+            <p className="overview-text">{result.typeDescription.fears}</p>
+          </div>
+        </div>
+
+        {/* 详细分析标签页 */}
+        <div className="type-detail-tabs">
+          <div className="tab-buttons">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="tab-content">
+            {renderTabContent()}
+          </div>
         </div>
 
         <div className="actions">
