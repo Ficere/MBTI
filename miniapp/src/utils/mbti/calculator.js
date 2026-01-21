@@ -25,25 +25,23 @@ export function calculateScores(answers, questions) {
     // 使用索引获取题目（questionId 是题目在数组中的索引）
     const question = questions[answer.questionId]
     if (!question) return
-    
+
     // 获取权重，兼容旧数据（没有 weight 字段时默认为 1.0）
     const weight = answer.weight !== undefined ? answer.weight : 1.0
-    
+
     // 计算得分
+    // answer.value 是用户选择的维度（A或B的value）
+    // weight 表示用户对该选择的确信程度：
+    // - 1.0 = 完全符合A, 0.75 = 偏向A, 0.5 = 中立, 0.25 = 偏向B, 0.0 = 完全符合B
     const choiceA = question.choice_a.value
     const choiceB = question.choice_b.value
-    
-    if (answer.value === choiceA) {
-      // 选择 A，权重越大，A 的得分越高
-      scores[choiceA] += weight
-      scores[choiceB] += (1 - weight)
-    } else {
-      // 选择 B，权重越大，B 的得分越高
-      scores[choiceB] += weight
-      scores[choiceA] += (1 - weight)
-    }
+
+    // 无论选择的是 A 还是 B 的维度值，都统一按照 weight 来分配分数
+    // weight 表示对 A 的倾向程度，(1-weight) 表示对 B 的倾向程度
+    scores[choiceA] += weight
+    scores[choiceB] += (1 - weight)
   })
-  
+
   return scores
 }
 
