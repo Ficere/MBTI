@@ -1,0 +1,144 @@
+.index-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 30px;
+
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .title {
+      display: block;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      display: block;
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  .content {
+    background: white;
+    border-radius: 32px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    .intro {
+      margin-bottom: 40px;
+
+      .intro-title {
+        display: block;
+        font-size: 32px;
+        font-weight: bold;
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+
+      .intro-text {
+        display: block;
+        font-size: 28px;
+        color: #6b7280;
+        line-height: 1.6;
+      }
+    }
+
+    .dimensions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+
+      .dimension-item {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 30px 20px;
+        border-radius: 16px;
+        text-align: center;
+
+        .dimension-label {
+          display: block;
+          font-size: 32px;
+          font-weight: bold;
+          color: #667eea;
+          margin-bottom: 10px;
+        }
+
+        .dimension-name {
+          display: block;
+          font-size: 24px;
+          color: #6b7280;
+        }
+      }
+    }
+
+    .info {
+      margin-bottom: 40px;
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #e5e7eb;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .info-icon {
+          font-size: 36px;
+          margin-right: 20px;
+        }
+
+        .info-text {
+          font-size: 28px;
+          color: #4b5563;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      button {
+        width: 100%;
+        padding: 28px;
+        border-radius: 16px;
+        font-size: 32px;
+        font-weight: bold;
+        border: none;
+      }
+
+      .continue-btn {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+      }
+
+      .start-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .history-btn {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        color: white;
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+
+    .footer-text {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+

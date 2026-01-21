@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import QRCode from 'qrcode'
 import { loadProgress, getTestHistory } from '../utils/storage'
 import './WelcomePage.css'
 
 function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory }) {
   const progress = loadProgress()
   const history = getTestHistory()
+  const [qrCodeUrl, setQrCodeUrl] = useState('')
+  const targetUrl = 'http://afel1408710.bohrium.tech:50005/'
+
+  // 生成二维码
+  useEffect(() => {
+    QRCode.toDataURL(targetUrl, {
+      width: 200,
+      margin: 2,
+      color: {
+        dark: '#1f2937',
+        light: '#ffffff'
+      }
+    }).then(url => {
+      setQrCodeUrl(url)
+    }).catch(err => {
+      console.error('生成二维码失败:', err)
+    })
+  }, [])
   const hasProgress = progress && progress.answers.length > 0
   const hasHistory = history.length > 0
 
@@ -97,15 +116,23 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory })
                 <span className="button-icon">👁️</span>
                 查看示例结果
               </button>
-              
-              {hasHistory && (
-                <button className="history-button" onClick={onShowHistory}>
-                  <span className="button-icon">📊</span>
-                  查看历史记录
-                  <span className="button-badge">{history.length}</span>
-                </button>
-              )}
+
+              <button className="history-button" onClick={onShowHistory}>
+                <span className="button-icon">📊</span>
+                查看历史记录
+                {hasHistory && <span className="button-badge">{history.length}</span>}
+              </button>
             </div>
+          </div>
+
+          {/* 二维码区域 */}
+          <div className="qr-section">
+            <h3 className="qr-title">📱 扫码访问</h3>
+            <div className="qr-container">
+              {qrCodeUrl && <img src={qrCodeUrl} alt="访问二维码" className="qr-image" />}
+            </div>
+            <p className="qr-url">{targetUrl}</p>
+            <p className="qr-hint">使用微信扫一扫，在手机上打开</p>
           </div>
         </div>
 

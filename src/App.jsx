@@ -41,6 +41,13 @@ function App() {
     setHistoryRecord(null)
   }
 
+  // 退出测试
+  const handleExitTest = () => {
+    clearProgress() // 清除进度
+    setContinueData(null)
+    setCurrentPage('welcome')
+  }
+
   // 显示示例
   const handleShowDemo = () => {
     setCurrentPage('demo')
@@ -72,7 +79,7 @@ function App() {
       {currentPage === 'test' && (
         <TestPage
           onComplete={handleTestComplete}
-          onShowDemo={handleShowDemo}
+          onExit={handleExitTest}
           initialAnswers={continueData?.answers || []}
           initialQuestion={continueData?.currentQuestion || 0}
         />

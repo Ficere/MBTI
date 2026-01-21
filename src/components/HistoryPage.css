@@ -162,16 +162,22 @@
   margin-bottom: 20px;
 }
 
-.type-label {
+.history-page .type-label {
   font-size: 14px;
-  color: #666;
+  color: #667eea;
+  font-weight: 600;
 }
 
-.type-value {
+.history-page .type-value {
   font-size: 32px;
   font-weight: bold;
   color: #667eea;
   letter-spacing: 2px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 .history-dimensions {
@@ -319,7 +325,7 @@
     padding: 20px;
   }
 
-  .type-value {
+  .history-page .type-value {
     font-size: 28px;
   }
 

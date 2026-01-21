@@ -1,44 +1,69 @@
 import React from 'react'
 import ResultPage from './ResultPage'
+import questions from '../data/questions.json'
 import './DemoPage.css'
 
 // 虚拟人物：李明，28岁，软件工程师
 function DemoPage({ onBack }) {
-  // 随机生成一个合理的MBTI测试答案
+  // 随机生成一个合理的MBTI测试答案（新格式）
   // 这个虚拟人物是一个INTJ类型的人
   const generateDemoAnswers = () => {
     const answers = []
-    
-    // E/I 维度：倾向内向 (I占65%)
-    const eiQuestions = 23 // 假设E/I相关题目约23题
-    const iCount = Math.floor(eiQuestions * 0.65)
-    const eCount = eiQuestions - iCount
-    for (let i = 0; i < iCount; i++) answers.push('I')
-    for (let i = 0; i < eCount; i++) answers.push('E')
-    
-    // S/N 维度：倾向直觉 (N占70%)
-    const snQuestions = 24
-    const nCount = Math.floor(snQuestions * 0.70)
-    const sCount = snQuestions - nCount
-    for (let i = 0; i < nCount; i++) answers.push('N')
-    for (let i = 0; i < sCount; i++) answers.push('S')
-    
-    // T/F 维度：倾向思考 (T占75%)
-    const tfQuestions = 23
-    const tCount = Math.floor(tfQuestions * 0.75)
-    const fCount = tfQuestions - tCount
-    for (let i = 0; i < tCount; i++) answers.push('T')
-    for (let i = 0; i < fCount; i++) answers.push('F')
-    
-    // J/P 维度：倾向判断 (J占60%)
-    const jpQuestions = 23
-    const jCount = Math.floor(jpQuestions * 0.60)
-    const pCount = jpQuestions - jCount
-    for (let i = 0; i < jCount; i++) answers.push('J')
-    for (let i = 0; i < pCount; i++) answers.push('P')
-    
-    // 打乱数组，使其看起来更真实
-    return answers.sort(() => Math.random() - 0.5)
+
+    // 为每个题目生成答案
+    questions.forEach((question, index) => {
+      const choiceA = question.choice_a.value
+      const choiceB = question.choice_b.value
+
+      // 根据题目类型设置倾向
+      let selectedValue, weight
+
+      if (choiceA === 'I' || choiceB === 'I') {
+        // E/I 维度：倾向内向 (I占65%)
+        if (choiceA === 'I') {
+          selectedValue = Math.random() < 0.65 ? 'I' : 'E'
+          weight = selectedValue === 'I' ? (Math.random() < 0.7 ? 1.0 : 0.75) : (Math.random() < 0.5 ? 0.25 : 0.0)
+        } else {
+          selectedValue = Math.random() < 0.65 ? 'I' : 'E'
+          weight = selectedValue === 'E' ? (Math.random() < 0.7 ? 0.0 : 0.25) : (Math.random() < 0.5 ? 0.75 : 1.0)
+        }
+      } else if (choiceA === 'N' || choiceB === 'N') {
+        // S/N 维度：倾向直觉 (N占70%)
+        if (choiceA === 'N') {
+          selectedValue = Math.random() < 0.70 ? 'N' : 'S'
+          weight = selectedValue === 'N' ? (Math.random() < 0.8 ? 1.0 : 0.75) : (Math.random() < 0.5 ? 0.25 : 0.0)
+        } else {
+          selectedValue = Math.random() < 0.70 ? 'N' : 'S'
+          weight = selectedValue === 'S' ? (Math.random() < 0.8 ? 0.0 : 0.25) : (Math.random() < 0.5 ? 0.75 : 1.0)
+        }
+      } else if (choiceA === 'T' || choiceB === 'T') {
+        // T/F 维度：倾向思考 (T占75%)
+        if (choiceA === 'T') {
+          selectedValue = Math.random() < 0.75 ? 'T' : 'F'
+          weight = selectedValue === 'T' ? (Math.random() < 0.8 ? 1.0 : 0.75) : (Math.random() < 0.5 ? 0.25 : 0.0)
+        } else {
+          selectedValue = Math.random() < 0.75 ? 'T' : 'F'
+          weight = selectedValue === 'F' ? (Math.random() < 0.8 ? 0.0 : 0.25) : (Math.random() < 0.5 ? 0.75 : 1.0)
+        }
+      } else {
+        // J/P 维度：倾向判断 (J占60%)
+        if (choiceA === 'J') {
+          selectedValue = Math.random() < 0.60 ? 'J' : 'P'
+          weight = selectedValue === 'J' ? (Math.random() < 0.6 ? 1.0 : 0.75) : (Math.random() < 0.5 ? 0.25 : 0.0)
+        } else {
+          selectedValue = Math.random() < 0.60 ? 'J' : 'P'
+          weight = selectedValue === 'P' ? (Math.random() < 0.6 ? 0.0 : 0.25) : (Math.random() < 0.5 ? 0.75 : 1.0)
+        }
+      }
+
+      answers.push({
+        questionId: question.id,
+        value: selectedValue,
+        weight: weight
+      })
+    })
+
+    return answers
   }
 
   const demoAnswers = generateDemoAnswers()

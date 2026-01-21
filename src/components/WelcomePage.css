@@ -181,14 +181,14 @@
   gap: 15px;
 }
 
-.demo-button,
-.history-button {
+.secondary-buttons .demo-button,
+.secondary-buttons .history-button {
   padding: 15px 20px;
   font-size: 16px;
   font-weight: 500;
   border: 2px solid #667eea;
-  background: white;
-  color: #667eea;
+  background: #ffffff;
+  color: #667eea !important;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -197,14 +197,31 @@
   justify-content: center;
   gap: 8px;
   position: relative;
+  height: 54px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+  opacity: 1;
 }
 
-.demo-button:hover,
-.history-button:hover {
+.secondary-buttons .demo-button:hover,
+.secondary-buttons .history-button:hover {
   background: #667eea;
-  color: white;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.secondary-buttons .demo-button:active,
+.secondary-buttons .history-button:active {
+  transform: translateY(0);
+}
+
+.secondary-buttons .demo-button .button-icon,
+.secondary-buttons .history-button .button-icon {
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-badge {
@@ -214,6 +231,52 @@
   padding: 2px 8px;
   border-radius: 10px;
   font-weight: bold;
+}
+
+/* 二维码区域 */
+.qr-section {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+  text-align: center;
+}
+
+.qr-title {
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.qr-container {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  display: inline-block;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.qr-image {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.qr-url {
+  font-size: 14px;
+  color: #6366f1;
+  font-weight: 500;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.qr-hint {
+  font-size: 13px;
+  color: #6b7280;
 }
 
 .welcome-footer {
@@ -268,6 +331,16 @@
   .start-button {
     font-size: 16px;
     padding: 16px 24px;
+  }
+
+  .qr-section {
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  .qr-image {
+    width: 180px;
+    height: 180px;
   }
 }
 
