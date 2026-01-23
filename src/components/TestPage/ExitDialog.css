@@ -1,0 +1,141 @@
+/* 退出确认对话框 */
+.exit-confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.exit-confirm-dialog {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exit-confirm-dialog h3 {
+  font-size: 22px;
+  color: #1f2937;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.exit-confirm-dialog p {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 25px 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.exit-confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-exit-button,
+.confirm-exit-button {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.cancel-exit-button {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-exit-button:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.confirm-exit-button {
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+  color: white;
+}
+
+.confirm-exit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+}
+
+.cancel-exit-button:active,
+.confirm-exit-button:active {
+  transform: translateY(0);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .test-page {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .demo-button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .question-card {
+    padding: 25px 20px;
+  }
+
+  .question-text {
+    font-size: 18px;
+  }
+
+  .choices-display {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .choice-option .choice-text {
+    font-size: 16px;
+  }
+
+  .exit-button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
+

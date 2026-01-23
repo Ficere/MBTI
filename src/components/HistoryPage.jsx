@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getTestHistory, deleteTestHistory, clearAllHistory } from '../utils/storage'
-import './HistoryPage.css'
+import './HistoryPage/index.css'
+import './HistoryPage/Responsive.css'
 
 function HistoryPage({ onBack, onViewResult }) {
   const [history, setHistory] = useState(getTestHistory())

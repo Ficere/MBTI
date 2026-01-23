@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import QRCode from 'qrcode'
 import { loadProgress, getTestHistory } from '../utils/storage'
-import './WelcomePage.css'
+import './WelcomePage/index.css'
+import './WelcomePage/Responsive.css'
 
-function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory }) {
+function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, onShowTypeBrowser }) {
   const progress = loadProgress()
   const history = getTestHistory()
   const [qrCodeUrl, setQrCodeUrl] = useState('')
@@ -91,7 +92,7 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory })
             </div>
             <div className="info-item">
               <span className="info-icon">⌨️</span>
-              <span className="info-text">支持键盘快捷键 A/B 或 1/2</span>
+              <span className="info-text">支持键盘快捷键（1/2/3/4/5）</span>
             </div>
           </div>
 
@@ -121,6 +122,11 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory })
                 <span className="button-icon">📊</span>
                 查看历史记录
                 {hasHistory && <span className="button-badge">{history.length}</span>}
+              </button>
+
+              <button className="type-browser-button" onClick={onShowTypeBrowser}>
+                <span className="button-icon">📚</span>
+                浏览所有类型
               </button>
             </div>
           </div>

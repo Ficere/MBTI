@@ -1,0 +1,157 @@
+/* 维度卡片样式 */
+
+.dimensions {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dimension-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.dimension-card:hover {
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+  border-color: #c7d2fe;
+}
+
+.dimension-name {
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.dimension-scores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.score-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.score-type {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-value {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.score-percent {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.dimension-bar {
+  display: flex;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bar-left {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: width 0.5s ease;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.bar-right {
+  background: linear-gradient(90deg, #ec4899 0%, #f97316 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: width 0.5s ease;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.dimension-result {
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #e9ecef;
+}
+
+.dimension-result strong {
+  font-size: 18px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.result-detail {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .dimensions {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .dimension-card {
+    padding: 20px;
+  }
+
+  .dimension-name {
+    font-size: 18px;
+  }
+
+  .dimension-scores {
+    gap: 10px;
+  }
+
+  .score-type {
+    font-size: 20px;
+  }
+
+  .score-percent {
+    font-size: 16px;
+  }
+
+  .dimension-bar {
+    height: 35px;
+  }
+}
+

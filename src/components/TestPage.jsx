@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import questions from '../data/questions.json'
 import { saveProgress } from '../utils/storage'
 import { ANSWER_OPTIONS } from '../constants/options'
-import './TestPage.css'
+import './TestPage/index.css'
+import './TestPage/Options.css'
+import './TestPage/ExitDialog.css'
 
 function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0 }) {
   const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
@@ -14,10 +16,28 @@ function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0
   const question = questions[currentQuestion]
   const progress = ((currentQuestion + 1) / questions.length) * 100
 
-  // 重置选项（切换题目时）
+  // 切换题目时，恢复该题目的答案状态（如果已回答）
   useEffect(() => {
-    setSelectedOption(null)
-  }, [currentQuestion])
+    // 查找当前题目是否已有答案
+    const currentAnswer = answers.find(ans => ans.questionId === currentQuestion)
+
+    if (currentAnswer) {
+      // 根据 weight 反推选项 ID
+      const weight = currentAnswer.weight
+      let optionId = null
+
+      if (weight === 1.0) optionId = 'strongly_a'
+      else if (weight === 0.75) optionId = 'somewhat_a'
+      else if (weight === 0.5) optionId = 'neutral'
+      else if (weight === 0.25) optionId = 'somewhat_b'
+      else if (weight === 0.0) optionId = 'strongly_b'
+
+      setSelectedOption(optionId)
+    } else {
+      // 未回答的题目，重置选项
+      setSelectedOption(null)
+    }
+  }, [currentQuestion, answers])
 
   const handleAnswer = (optionId) => {
     const option = ANSWER_OPTIONS.find(opt => opt.id === optionId)
@@ -40,8 +60,21 @@ function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0
       weight: option.weight
     }
 
-    const newAnswers = [...answers, newAnswer]
+    // 检查当前题目是否已有答案
+    const existingAnswerIndex = answers.findIndex(ans => ans.questionId === currentQuestion)
+    let newAnswers
+
+    if (existingAnswerIndex >= 0) {
+      // 更新已有答案
+      newAnswers = [...answers]
+      newAnswers[existingAnswerIndex] = newAnswer
+    } else {
+      // 添加新答案
+      newAnswers = [...answers, newAnswer]
+    }
+
     setAnswers(newAnswers)
+    setSelectedOption(optionId) // 立即更新选中状态
 
     if (currentQuestion < questions.length - 1) {
       const nextQuestion = currentQuestion + 1
@@ -56,11 +89,10 @@ function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       const prevQuestion = currentQuestion - 1
-      const newAnswers = answers.slice(0, -1)
       setCurrentQuestion(prevQuestion)
-      setAnswers(newAnswers)
+      // 不删除答案，只是回退题目
       // 保存进度
-      saveProgress(newAnswers, prevQuestion)
+      saveProgress(answers, prevQuestion)
     }
   }
 

@@ -10,8 +10,13 @@ export {
 
 export {
   DIMENSIONS,
-  TYPE_DESCRIPTIONS,
-  getDimensionByPair,
-  getTypeDescription
+  getTypeDescription,
+  getAllTypeDescriptions
 } from '../../constants/mbti'
+
+// 获取维度信息
+export function getDimensionByPair(pair) {
+  const { DIMENSIONS } = require('../../constants/mbti')
+  return DIMENSIONS.find(d => d.pair === pair)
+}
 

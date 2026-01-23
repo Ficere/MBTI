@@ -115,7 +115,10 @@ MBTI/
 │   │   └── HistoryPage.jsx       # 历史记录页面
 │   ├── constants/                # ✨ 常量配置
 │   │   ├── options.js            # 答题选项配置（5选项权重）
-│   │   └── mbti.js               # MBTI 类型和维度定义
+│   │   └── mbti/                 # MBTI 类型和维度定义（模块化）
+│   │       ├── index.js          # 统一导出
+│   │       ├── dimensions.js     # 维度定义
+│   │       └── types/            # 16个类型描述文件
 │   ├── utils/                    # 工具函数
 │   │   ├── mbti/                 # ✨ MBTI 核心逻辑
 │   │   │   ├── calculator.js     # 计算逻辑（支持权重）
@@ -276,7 +279,9 @@ I 百分比 = (7.0 / 23.0) × 100% = 30.4%
 
 ### 修改 MBTI 类型描述
 
-编辑 `src/constants/mbti.js` 中的 `TYPE_DESCRIPTIONS` 对象。
+编辑 `src/constants/mbti/types/` 目录下的对应类型文件（如 `INTJ.js`）。
+
+或者编辑 `src/constants/mbti/dimensions.js` 修改维度定义。
 
 ## 📚 文档
 

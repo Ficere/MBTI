@@ -1,0 +1,95 @@
+/* 类型概览卡片样式 */
+
+.type-overview-card {
+  margin: 0 40px 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.overview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.overview-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.overview-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.overview-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.traits-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trait-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.trait-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.overview-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .type-overview-card {
+    margin: 0 20px 20px;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .overview-icon {
+    font-size: 24px;
+  }
+
+  .overview-title {
+    font-size: 16px;
+  }
+
+  .trait-tag {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .overview-text {
+    font-size: 14px;
+  }
+}
+

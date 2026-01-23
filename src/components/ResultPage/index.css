@@ -1,0 +1,51 @@
+/* ResultPage 主样式 */
+
+.result-page {
+  width: 100%;
+  max-width: 900px;
+}
+
+.result-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .result-page {
+    padding: 0;
+  }
+
+  .result-container {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  /* Actions 响应式 */
+  .actions {
+    padding: 0 20px 30px;
+    flex-direction: column;
+  }
+
+  .restart-button,
+  .download-button,
+  .copy-button,
+  .qr-button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .qr-modal-content {
+    padding: 30px 20px;
+  }
+
+  .qr-code-container img {
+    width: 250px;
+    height: 250px;
+  }
+}
+

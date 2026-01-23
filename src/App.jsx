@@ -4,11 +4,12 @@ import TestPage from './components/TestPage'
 import ResultPage from './components/ResultPage'
 import DemoPage from './components/DemoPage'
 import HistoryPage from './components/HistoryPage'
+import TypeBrowserPage from './components/TypeBrowserPage'
 import { clearProgress } from './utils/storage'
 import './App.css'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('welcome') // welcome, test, result, demo, history
+  const [currentPage, setCurrentPage] = useState('welcome') // welcome, test, result, demo, history, typeBrowser
   const [answers, setAnswers] = useState(null)
   const [historyRecord, setHistoryRecord] = useState(null)
   const [continueData, setContinueData] = useState(null)
@@ -58,6 +59,11 @@ function App() {
     setCurrentPage('history')
   }
 
+  // 显示类型浏览器
+  const handleShowTypeBrowser = () => {
+    setCurrentPage('typeBrowser')
+  }
+
   // 查看历史记录详情
   const handleViewHistoryResult = (record) => {
     setHistoryRecord(record)
@@ -73,6 +79,7 @@ function App() {
           onContinueTest={handleContinueTest}
           onShowDemo={handleShowDemo}
           onShowHistory={handleShowHistory}
+          onShowTypeBrowser={handleShowTypeBrowser}
         />
       )}
 
@@ -102,6 +109,10 @@ function App() {
           onBack={handleBackToWelcome}
           onViewResult={handleViewHistoryResult}
         />
+      )}
+
+      {currentPage === 'typeBrowser' && (
+        <TypeBrowserPage onBack={handleBackToWelcome} />
       )}
     </div>
   )

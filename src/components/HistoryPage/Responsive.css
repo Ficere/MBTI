@@ -1,0 +1,35 @@
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .history-page {
+    padding: 10px;
+  }
+
+  .history-header {
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .history-header h1 {
+    font-size: 22px;
+    width: 100%;
+    order: -1;
+    margin-bottom: 15px;
+  }
+
+  .history-list {
+    padding: 20px;
+  }
+
+  .history-item {
+    padding: 20px;
+  }
+
+  .history-page .type-value {
+    font-size: 28px;
+  }
+
+  .history-dimensions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
