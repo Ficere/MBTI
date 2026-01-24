@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import defaultQuestions from '../data/questions.json'
 import { saveTestResult } from '../utils/storage'
 import { calculateMBTI } from '../utils/mbti'
@@ -17,15 +17,18 @@ import './ResultPage/Actions.css'
 
 function ResultPage({ answers, onRestart, isHistoryView = false, questions = defaultQuestions }) {
   const [result, setResult] = useState(null)
+  // 使用 answers 的引用作为标识，避免重复保存
+  const savedAnswersRef = useRef(null)
 
   // 计算测试结果并异步加载类型描述
   useEffect(() => {
     async function loadResult() {
       const { type, scores, dimensions } = calculateMBTI(answers, questions)
 
-      // 保存测试结果到历史（仅在非历史查看模式下）
-      if (!isHistoryView) {
+      // 保存测试结果到历史（仅在非历史查看模式下，且该 answers 未保存过）
+      if (!isHistoryView && savedAnswersRef.current !== answers) {
         saveTestResult(type, answers, scores)
+        savedAnswersRef.current = answers
       }
 
       // 异步获取类型描述
