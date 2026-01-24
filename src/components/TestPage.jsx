@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import questions from '../data/questions.json'
+import defaultQuestions from '../data/questions.json'
 import { saveProgress } from '../utils/storage'
 import { ANSWER_OPTIONS } from '../constants/options'
 import './TestPage/index.css'
 import './TestPage/Options.css'
 import './TestPage/ExitDialog.css'
 
-function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0 }) {
+function TestPage({ 
+  onComplete, 
+  onExit, 
+  initialAnswers = [], 
+  initialQuestion = 0,
+  questions = defaultQuestions,
+  modeName = '完整版'
+}) {
   const [currentQuestion, setCurrentQuestion] = useState(initialQuestion)
   const [answers, setAnswers] = useState(initialAnswers)
   const [selectedOption, setSelectedOption] = useState(null) // 当前选中的选项
@@ -151,6 +158,7 @@ function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0
         <div className="header">
           <div className="header-top">
             <h1>MBTI 性格测试</h1>
+            <span className="test-mode-badge">{modeName}</span>
             <button className="exit-button" onClick={handleExitClick} title="退出测试">
               ✕
             </button>
@@ -165,7 +173,7 @@ function TestPage({ onComplete, onExit, initialAnswers = [], initialQuestion = 0
         </div>
 
         <div className="question-card">
-          <h2 className="question-text">{question.question}</h2>
+          <h2 className="question-text">{question.question || question.questionText}</h2>
 
           {/* 展示两个选项 */}
           <div className="choices-display">

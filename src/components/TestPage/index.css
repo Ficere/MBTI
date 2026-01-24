@@ -34,6 +34,17 @@
   margin: 0;
 }
 
+.test-mode-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
 .exit-button {
   position: absolute;
   right: 0;

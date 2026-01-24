@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-function TypeOverview({ typeDescription }) {
+const TypeOverview = memo(function TypeOverview({ typeDescription }) {
   return (
     <div className="type-overview-card">
       <div className="overview-section">
@@ -26,7 +26,7 @@ function TypeOverview({ typeDescription }) {
       </div>
     </div>
   )
-}
+})
 
 export default TypeOverview
 

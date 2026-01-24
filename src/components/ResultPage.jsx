@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import questions from '../data/questions.json'
+import defaultQuestions from '../data/questions.json'
 import { saveTestResult } from '../utils/storage'
 import { calculateMBTI } from '../utils/mbti'
 import { getTypeDescription } from '../constants/mbti'
@@ -15,7 +15,7 @@ import './ResultPage/TypeOverview.css'
 import './ResultPage/TypeDetailTabs.css'
 import './ResultPage/Actions.css'
 
-function ResultPage({ answers, onRestart, isHistoryView = false }) {
+function ResultPage({ answers, onRestart, isHistoryView = false, questions = defaultQuestions }) {
   const [result, setResult] = useState(null)
 
   // 计算测试结果并异步加载类型描述
@@ -40,7 +40,7 @@ function ResultPage({ answers, onRestart, isHistoryView = false }) {
     }
 
     loadResult()
-  }, [answers, isHistoryView])
+  }, [answers, isHistoryView, questions])
 
   // 加载中状态
   if (!result) {

@@ -1,0 +1,511 @@
+[
+  {
+    "id": 1,
+    "dimension": "E/I",
+    "subDimension": "Energy Source",
+    "questionText": "与很多人一起会",
+    "choice_a": {
+      "value": "E",
+      "text": "令你活力倍增"
+    },
+    "choice_b": {
+      "value": "I",
+      "text": "常常令你心力交瘁"
+    },
+    "originIds": [
+      20,
+      24
+    ]
+  },
+  {
+    "id": 2,
+    "dimension": "E/I",
+    "subDimension": "Social Initiative",
+    "questionText": "在一大群人当中，通常是",
+    "choice_a": {
+      "value": "E",
+      "text": "你介绍大家认识"
+    },
+    "choice_b": {
+      "value": "I",
+      "text": "别人介绍你"
+    },
+    "originIds": [
+      14,
+      36
+    ]
+  },
+  {
+    "id": 3,
+    "dimension": "E/I",
+    "subDimension": "Privacy",
+    "questionText": "大多数人会说你是一个",
+    "choice_a": {
+      "value": "I",
+      "text": "重视自我隐私的人"
+    },
+    "choice_b": {
+      "value": "E",
+      "text": "非常坦率开放的人"
+    },
+    "originIds": [
+      12,
+      8,
+      27
+    ]
+  },
+  {
+    "id": 4,
+    "dimension": "E/I",
+    "subDimension": "Communication Style",
+    "questionText": "在社交聚会上，你会",
+    "choice_a": {
+      "value": "E",
+      "text": "是说话很多的一个"
+    },
+    "choice_b": {
+      "value": "I",
+      "text": "让别人多说话"
+    },
+    "originIds": [
+      72,
+      65
+    ]
+  },
+  {
+    "id": 5,
+    "dimension": "E/I",
+    "subDimension": "Social Preference",
+    "questionText": "你喜欢花很多的时间",
+    "choice_a": {
+      "value": "I",
+      "text": "一个人独处"
+    },
+    "choice_b": {
+      "value": "E",
+      "text": "和别人在一起"
+    },
+    "originIds": [
+      19,
+      59
+    ]
+  },
+  {
+    "id": 6,
+    "dimension": "E/I",
+    "subDimension": "Interaction",
+    "questionText": "你通常",
+    "choice_a": {
+      "value": "E",
+      "text": "与人容易混熟"
+    },
+    "choice_b": {
+      "value": "I",
+      "text": "比较沉静或矜持"
+    },
+    "originIds": [
+      4,
+      25,
+      45
+    ]
+  },
+  {
+    "id": 7,
+    "dimension": "E/I",
+    "subDimension": "Depth of Connection",
+    "questionText": "你能否滔滔不绝地与人聊天",
+    "choice_a": {
+      "value": "I",
+      "text": "只限于跟你有共同兴趣的人"
+    },
+    "choice_b": {
+      "value": "E",
+      "text": "几乎跟任何人都可以"
+    },
+    "originIds": [
+      78,
+      67
+    ]
+  },
+  {
+    "id": 8,
+    "dimension": "S/N",
+    "subDimension": "Information Source",
+    "questionText": "假如你是一名老师，你会选教",
+    "choice_a": {
+      "value": "S",
+      "text": "以事实为主的课程"
+    },
+    "choice_b": {
+      "value": "N",
+      "text": "涉及理论的课程"
+    },
+    "originIds": [
+      3,
+      31,
+      34
+    ]
+  },
+  {
+    "id": 9,
+    "dimension": "S/N",
+    "subDimension": "Methodology",
+    "questionText": "你会",
+    "choice_a": {
+      "value": "S",
+      "text": "跟随一些证明有效的方法"
+    },
+    "choice_b": {
+      "value": "N",
+      "text": "尝试新的方法"
+    },
+    "originIds": [
+      79,
+      41
+    ]
+  },
+  {
+    "id": 10,
+    "dimension": "S/N",
+    "subDimension": "Originality",
+    "questionText": "要做许多人也做的事，你比较喜欢",
+    "choice_a": {
+      "value": "S",
+      "text": "按照一般认可的方法去做"
+    },
+    "choice_b": {
+      "value": "N",
+      "text": "构想一个自己的想法"
+    },
+    "originIds": [
+      63,
+      66
+    ]
+  },
+  {
+    "id": 11,
+    "dimension": "S/N",
+    "subDimension": "Self-Image",
+    "questionText": "你宁愿被人认为是一个",
+    "choice_a": {
+      "value": "S",
+      "text": "实事求是的人"
+    },
+    "choice_b": {
+      "value": "N",
+      "text": "机灵的人"
+    },
+    "originIds": [
+      13,
+      5
+    ]
+  },
+  {
+    "id": 12,
+    "dimension": "S/N",
+    "subDimension": "Information Focus",
+    "questionText": "为乐趣而阅读时，你会",
+    "choice_a": {
+      "value": "N",
+      "text": "喜欢奇特或创新的表达方式"
+    },
+    "choice_b": {
+      "value": "S",
+      "text": "喜欢作者直话直说"
+    },
+    "originIds": [
+      80,
+      54
+    ]
+  },
+  {
+    "id": 13,
+    "dimension": "S/N",
+    "subDimension": "Work Orientation",
+    "questionText": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+    "choice_a": {
+      "value": "S",
+      "text": "建造"
+    },
+    "choice_b": {
+      "value": "N",
+      "text": "发明"
+    },
+    "originIds": [
+      57,
+      89
+    ]
+  },
+  {
+    "id": 14,
+    "dimension": "S/N",
+    "subDimension": "Attraction",
+    "questionText": "哪些人会更吸引你？",
+    "choice_a": {
+      "value": "N",
+      "text": "一个思维敏捷及非常聪颖的人"
+    },
+    "choice_b": {
+      "value": "S",
+      "text": "实事求是，具丰富常识的人"
+    },
+    "originIds": [
+      25,
+      15
+    ]
+  },
+  {
+    "id": 15,
+    "dimension": "T/F",
+    "subDimension": "Decision Making",
+    "questionText": "要做决定时，你认为比较重要的是",
+    "choice_a": {
+      "value": "T",
+      "text": "据事实衡量"
+    },
+    "choice_b": {
+      "value": "F",
+      "text": "考虑他人的感受和意见"
+    },
+    "originIds": [
+      84,
+      16
+    ]
+  },
+  {
+    "id": 16,
+    "dimension": "T/F",
+    "subDimension": "Guidance",
+    "questionText": "你是否经常让",
+    "choice_a": {
+      "value": "F",
+      "text": "你的情感支配你的理智"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "你的理智主宰你的情感"
+    },
+    "originIds": [
+      6,
+      16,
+      62
+    ]
+  },
+  {
+    "id": 17,
+    "dimension": "T/F",
+    "subDimension": "Work Environment",
+    "questionText": "你宁愿替哪一类上司（或者老师）工作？",
+    "choice_a": {
+      "value": "F",
+      "text": "天性淳良，但常常前后不一的"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "言辞尖锐但永远合乎逻辑的"
+    },
+    "originIds": [
+      81,
+      49
+    ]
+  },
+  {
+    "id": 18,
+    "dimension": "T/F",
+    "subDimension": "Values",
+    "questionText": "哪个是较高的赞誉，或称许为？",
+    "choice_a": {
+      "value": "F",
+      "text": "一贯感性的人"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "一贯理性的人"
+    },
+    "originIds": [
+      75,
+      50
+    ]
+  },
+  {
+    "id": 19,
+    "dimension": "T/F",
+    "subDimension": "Communication",
+    "questionText": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+    "choice_a": {
+      "value": "F",
+      "text": "亲切地"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "客观地"
+    },
+    "originIds": [
+      55,
+      32
+    ]
+  },
+  {
+    "id": 20,
+    "dimension": "T/F",
+    "subDimension": "Orientation",
+    "questionText": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+    "choice_a": {
+      "value": "F",
+      "text": "富同情"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "合逻辑"
+    },
+    "originIds": [
+      61,
+      95
+    ]
+  },
+  {
+    "id": 21,
+    "dimension": "T/F",
+    "subDimension": "Preference",
+    "questionText": "你倾向",
+    "choice_a": {
+      "value": "F",
+      "text": "重视感情多于逻辑"
+    },
+    "choice_b": {
+      "value": "T",
+      "text": "重视逻辑多于感情"
+    },
+    "originIds": [
+      16,
+      33
+    ]
+  },
+  {
+    "id": 22,
+    "dimension": "J/P",
+    "subDimension": "Structure",
+    "questionText": "当你要外出一整天，你会",
+    "choice_a": {
+      "value": "J",
+      "text": "计划你要做什么和在什么时候做"
+    },
+    "choice_b": {
+      "value": "P",
+      "text": "说去就去"
+    },
+    "originIds": [
+      1,
+      7
+    ]
+  },
+  {
+    "id": 23,
+    "dimension": "J/P",
+    "subDimension": "Process",
+    "questionText": "总的说来，要做一个大型作业时，你会选",
+    "choice_a": {
+      "value": "P",
+      "text": "边做边想该做什么"
+    },
+    "choice_b": {
+      "value": "J",
+      "text": "首先把工作按步细分"
+    },
+    "originIds": [
+      77,
+      64
+    ]
+  },
+  {
+    "id": 24,
+    "dimension": "J/P",
+    "subDimension": "Routine",
+    "questionText": "按照程序表做事",
+    "choice_a": {
+      "value": "J",
+      "text": "合你心意"
+    },
+    "choice_b": {
+      "value": "P",
+      "text": "令你感到束缚"
+    },
+    "originIds": [
+      9,
+      11,
+      70
+    ]
+  },
+  {
+    "id": 25,
+    "dimension": "J/P",
+    "subDimension": "Planning",
+    "questionText": "计划一个旅程时，你较喜欢",
+    "choice_a": {
+      "value": "P",
+      "text": "大部分的时间都是跟当天的感觉行事"
+    },
+    "choice_b": {
+      "value": "J",
+      "text": "事先知道大部分的日子会做什么"
+    },
+    "originIds": [
+      22,
+      21
+    ]
+  },
+  {
+    "id": 26,
+    "dimension": "J/P",
+    "subDimension": "Self-Image",
+    "questionText": "你认为自己是一个",
+    "choice_a": {
+      "value": "P",
+      "text": "较为随兴所至的人"
+    },
+    "choice_b": {
+      "value": "J",
+      "text": "较为有条理的人"
+    },
+    "originIds": [
+      2,
+      35
+    ]
+  },
+  {
+    "id": 27,
+    "dimension": "J/P",
+    "subDimension": "Pressure",
+    "questionText": "在日常工作中，你会",
+    "choice_a": {
+      "value": "P",
+      "text": "颇为喜欢处理迫使你分秒必争的突发"
+    },
+    "choice_b": {
+      "value": "J",
+      "text": "通常预先计划，以免要在压力下工作"
+    },
+    "originIds": [
+      26,
+      40
+    ]
+  },
+  {
+    "id": 28,
+    "dimension": "J/P",
+    "subDimension": "Closure",
+    "questionText": "把周末期间要完成的事列成清单，这个主意会",
+    "choice_a": {
+      "value": "J",
+      "text": "合你意"
+    },
+    "choice_b": {
+      "value": "P",
+      "text": "使你提不起劲"
+    },
+    "originIds": [
+      74,
+      39
+    ]
+  }
+]

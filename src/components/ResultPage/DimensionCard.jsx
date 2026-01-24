@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-function DimensionCard({ dimension }) {
+const DimensionCard = memo(function DimensionCard({ dimension }) {
   const leftPercent = dimension.left.percent
   const rightPercent = dimension.right.percent
   const dominant = dimension.dominant
@@ -48,7 +48,7 @@ function DimensionCard({ dimension }) {
       </div>
     </div>
   )
-}
+})
 
 export default DimensionCard
 

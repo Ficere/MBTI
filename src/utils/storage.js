@@ -1,22 +1,8 @@
+import { generateId, formatDateTime, isExpired } from './helpers'
+
 // localStorage 键名
 const PROGRESS_KEY = 'mbti_progress'
 const HISTORY_KEY = 'mbti_history'
-
-// 生成唯一 ID
-const generateId = () => {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-}
-
-// 格式化日期时间
-const formatDateTime = (timestamp) => {
-  const date = new Date(timestamp)
-  const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
-  const hours = String(date.getHours()).padStart(2, '0')
-  const minutes = String(date.getMinutes()).padStart(2, '0')
-  return `${year}-${month}-${day} ${hours}:${minutes}`
-}
 
 // ========== 进度管理 ==========
 
@@ -44,8 +30,7 @@ export const loadProgress = () => {
     
     const progress = JSON.parse(data)
     // 检查进度是否过期（超过7天）
-    const sevenDays = 7 * 24 * 60 * 60 * 1000
-    if (Date.now() - progress.timestamp > sevenDays) {
+    if (isExpired(progress.timestamp, 7)) {
       clearProgress()
       return null
     }

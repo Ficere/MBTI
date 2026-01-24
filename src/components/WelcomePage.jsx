@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import QRCode from 'qrcode'
 import { loadProgress, getTestHistory } from '../utils/storage'
+import { preloadPopularTypes } from '../constants/mbti'
 import './WelcomePage/index.css'
 import './WelcomePage/Responsive.css'
 
 function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, onShowTypeBrowser }) {
+  // onStartTest 现在接受 mode 参数: 'full' | 'quick'
   const progress = loadProgress()
   const history = getTestHistory()
   const [qrCodeUrl, setQrCodeUrl] = useState('')
   const targetUrl = 'http://afel1408710.bohrium.tech:50005/'
 
-  // 生成二维码
+  // 生成二维码 & 预加载热门类型描述
   useEffect(() => {
+    // 生成二维码
     QRCode.toDataURL(targetUrl, {
       width: 200,
       margin: 2,
@@ -24,6 +27,9 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, o
     }).catch(err => {
       console.error('生成二维码失败:', err)
     })
+
+    // 静默预加载热门类型（提升后续体验）
+    preloadPopularTypes()
   }, [])
   const hasProgress = progress && progress.answers.length > 0
   const hasHistory = history.length > 0
@@ -79,14 +85,6 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, o
 
           <div className="test-info">
             <div className="info-item">
-              <span className="info-icon">📝</span>
-              <span className="info-text">共 93 道题目</span>
-            </div>
-            <div className="info-item">
-              <span className="info-icon">⏱️</span>
-              <span className="info-text">预计 10-15 分钟</span>
-            </div>
-            <div className="info-item">
               <span className="info-icon">💡</span>
               <span className="info-text">凭直觉选择，不要过度思考</span>
             </div>
@@ -107,10 +105,20 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, o
               </button>
             )}
             
-            <button className="start-button" onClick={onStartTest}>
-              <span className="button-icon">🚀</span>
-              {hasProgress ? '重新开始测试' : '开始测试'}
-            </button>
+            {/* 两种测试模式入口 */}
+            <div className="test-mode-buttons">
+              <button className="start-button start-button-full" onClick={() => onStartTest('full')}>
+                <span className="button-icon">📋</span>
+                <span className="button-main">完整测试</span>
+                <span className="button-desc">93 题 · 10-15 分钟 · 更精准</span>
+              </button>
+              
+              <button className="start-button start-button-quick" onClick={() => onStartTest('quick')}>
+                <span className="button-icon">⚡</span>
+                <span className="button-main">快速测试</span>
+                <span className="button-desc">28 题 · 3-5 分钟 · 精简版</span>
+              </button>
+            </div>
 
             <div className="secondary-buttons">
               <button className="demo-button" onClick={onShowDemo}>

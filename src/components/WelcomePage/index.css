@@ -158,15 +158,50 @@
   box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
 }
 
+/* 测试模式按钮组 */
+.test-mode-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
 .start-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  flex-direction: column;
+  padding: 20px;
+  min-height: 90px;
 }
 
 .start-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.start-button-full {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.start-button-quick {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+.start-button-quick:hover {
+  box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
+}
+
+.button-main {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button-desc {
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: normal;
 }
 
 .button-icon {

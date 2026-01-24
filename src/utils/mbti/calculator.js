@@ -1,4 +1,5 @@
 import { DIMENSIONS } from '../../constants/mbti'
+import { calculatePercentage } from '../helpers'
 
 /**
  * 初始化得分对象
@@ -84,8 +85,8 @@ export function calculateDimensions(scores, questions) {
     const rightScore = scores[rightType]
     const totalScore = leftScore + rightScore
     
-    // 计算百分比
-    const leftPercent = totalScore > 0 ? Math.round((leftScore / totalScore) * 100) : 50
+    // 计算百分比（使用通用工具函数）
+    const leftPercent = totalScore > 0 ? calculatePercentage(leftScore, totalScore) : 50
     const rightPercent = 100 - leftPercent
 
     // 构建包含得分的左右对象

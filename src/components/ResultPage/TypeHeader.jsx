@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-function TypeHeader({ mbtiType, tagline, isHistoryView }) {
+const TypeHeader = memo(function TypeHeader({ mbtiType, tagline, isHistoryView }) {
   return (
     <div className="result-header">
       <h1>测试结果</h1>
@@ -13,7 +13,7 @@ function TypeHeader({ mbtiType, tagline, isHistoryView }) {
       </div>
     </div>
   )
-}
+})
 
 export default TypeHeader
 
