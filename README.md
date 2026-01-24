@@ -75,6 +75,9 @@ npm install
 # 启动开发服务器
 npm run dev
 
+# 启动开发服务器（智能模式 - 自动检测并关闭已有实例）
+npm run dev:safe
+
 # 构建生产版本
 npm run build
 

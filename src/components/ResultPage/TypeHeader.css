@@ -64,7 +64,7 @@
   background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
 }
 
-.type-tagline {
+.result-type-tagline {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
@@ -92,7 +92,7 @@
     letter-spacing: 4px;
   }
 
-  .type-tagline {
+  .result-type-tagline {
     font-size: 14px;
   }
 }

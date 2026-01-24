@@ -8,7 +8,7 @@ function TypeOverview({ typeDescription }) {
         <h3 className="overview-title">核心特质</h3>
         <div className="traits-container">
           {typeDescription.traits.map((trait, index) => (
-            <span key={index} className="trait-tag">{trait}</span>
+            <span key={index} className="result-trait-tag">{trait}</span>
           ))}
         </div>
       </div>

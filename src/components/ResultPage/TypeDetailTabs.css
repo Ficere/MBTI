@@ -1,6 +1,6 @@
 /* 详细分析标签页样式 */
 
-.type-detail-tabs {
+.result-type-detail-tabs {
   margin: 0 40px 30px;
   background: #ffffff;
   border-radius: 16px;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.tab-buttons {
+.result-tab-buttons {
   display: flex;
   flex-wrap: wrap;
   background: #f9fafb;
@@ -18,7 +18,7 @@
   gap: 8px;
 }
 
-.tab-button {
+.result-tab-button {
   flex: 1;
   min-width: 140px;
   padding: 12px 20px;
@@ -33,30 +33,30 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.tab-button:hover {
+.result-tab-button:hover {
   background: #f3f4f6;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.tab-button.active {
+.result-tab-button.result-active {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: white;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
-.tab-content {
+.result-tab-content {
   padding: 30px;
   min-height: 200px;
 }
 
-.tab-content-list {
+.result-tab-content-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.content-item {
+.result-content-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -67,19 +67,19 @@
   transition: all 0.3s ease;
 }
 
-.content-item:hover {
+.result-content-item:hover {
   background: #f3f4f6;
   border-left-color: #8b5cf6;
   transform: translateX(5px);
 }
 
-.item-icon {
+.result-item-icon {
   font-size: 20px;
   line-height: 1;
   flex-shrink: 0;
 }
 
-.item-text {
+.result-item-text {
   font-size: 15px;
   line-height: 1.6;
   color: #374151;
@@ -127,35 +127,35 @@
 
 /* 响应式 */
 @media (max-width: 768px) {
-  .type-detail-tabs {
+  .result-type-detail-tabs {
     margin: 0 20px 20px;
   }
 
-  .tab-buttons {
+  .result-tab-buttons {
     padding: 8px;
     gap: 6px;
   }
 
-  .tab-button {
+  .result-tab-button {
     min-width: 100px;
     padding: 10px 15px;
     font-size: 13px;
   }
 
-  .tab-content {
+  .result-tab-content {
     padding: 20px;
   }
 
-  .content-item {
+  .result-content-item {
     padding: 12px;
     gap: 10px;
   }
 
-  .item-icon {
+  .result-item-icon {
     font-size: 18px;
   }
 
-  .item-text {
+  .result-item-text {
     font-size: 14px;
   }
 

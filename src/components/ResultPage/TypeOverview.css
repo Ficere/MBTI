@@ -43,7 +43,7 @@
   gap: 10px;
 }
 
-.trait-tag {
+.result-trait-tag {
   display: inline-block;
   padding: 8px 16px;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
@@ -55,7 +55,7 @@
   transition: all 0.3s ease;
 }
 
-.trait-tag:hover {
+.result-trait-tag:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
@@ -83,7 +83,7 @@
     font-size: 16px;
   }
 
-  .trait-tag {
+  .result-trait-tag {
     padding: 6px 12px;
     font-size: 13px;
   }

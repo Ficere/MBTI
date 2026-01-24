@@ -130,19 +130,19 @@ function TypeDetailTabs({ typeDescription }) {
   }
 
   return (
-    <div className="type-detail-tabs">
-      <div className="tab-buttons">
+    <div className="result-type-detail-tabs">
+      <div className="result-tab-buttons">
         {TABS.map(tab => (
           <button
             key={tab.id}
-            className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+            className={`result-tab-button ${activeTab === tab.id ? 'result-active' : ''}`}
             onClick={() => setActiveTab(tab.id)}
           >
             {tab.label}
           </button>
         ))}
       </div>
-      <div className="tab-content">
+      <div className="result-tab-content">
         {renderTabContent()}
       </div>
     </div>

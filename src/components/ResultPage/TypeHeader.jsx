@@ -9,7 +9,7 @@ function TypeHeader({ mbtiType, tagline, isHistoryView }) {
           {isHistoryView ? '性格类型' : '你的性格类型是'}
         </span>
         <span className="type-value">{mbtiType}</span>
-        <span className="type-tagline">{tagline}</span>
+        <span className="result-type-tagline">{tagline}</span>
       </div>
     </div>
   )
