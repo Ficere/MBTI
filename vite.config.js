@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages 项目站点部署在 /MBTI/ 子路径下
+  base: '/MBTI/',
   plugins: [react()],
   server: {
     host: '0.0.0.0', // 监听所有网络接口
@@ -17,4 +19,3 @@ export default defineConfig({
     allowedHosts: ['.bohrium.tech', 'localhost'] // 允许 bohrium.tech 的所有子域名
   }
 })
-
