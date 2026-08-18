@@ -10,7 +10,7 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, o
   const progress = loadProgress()
   const history = getTestHistory()
   const [qrCodeUrl, setQrCodeUrl] = useState('')
-  const targetUrl = 'http://afel1408710.bohrium.tech:50005/'
+  const targetUrl = new URL(import.meta.env.BASE_URL, window.location.origin).href
 
   // 生成二维码 & 预加载热门类型描述
   useEffect(() => {
@@ -159,4 +159,3 @@ function WelcomePage({ onStartTest, onContinueTest, onShowDemo, onShowHistory, o
 }
 
 export default WelcomePage
-
